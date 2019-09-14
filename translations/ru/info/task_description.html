@@ -1,0 +1,100 @@
+<!-- Describe task in general -->
+
+<p>В третьей задаче по парсингу YAML мы познакомимся с массивами.</p>
+
+<p><i>(Помните, что в этой миссии надо учитывать умловия предыдущих миссий. Это значит, что ваше решение должно работать со словарями из предыдущей миссии и с массивами из этой)</i></p>
+
+<p>Простой пример:</p>
+
+<pre>
+- write some
+- "Alex Chii"
+- 89
+</pre>
+
+<pre>
+[
+  "write some", 
+  "Alex Chii", 
+  89
+]
+</pre>
+
+<p>Как видите в этом примере - формат для значений такой же как мы использовали для формата значений в словаре, в предыдущей задаче</p>
+
+<p>Также, пришло время дополнить формат комментариям</p>
+
+<p>Все, что указано после знака # должно игнорироваться парсером</p>
+
+<pre>
+# comment
+- write some # after
+# one mor
+- "Alex Chii #sir "
+- 89 #bl
+</pre>
+
+<pre>
+[
+  "write some", 
+  "Alex Chii #sir ", 
+  89
+]
+</pre>
+
+<p>Как могли заменить, что комментарии внутри стро не считаются комментариями, а считаются частью строки - что логично.</p>
+
+<!-- Explain input and output values -->
+<p>
+    <strong>Входные данные: </strong> Строка в формате 
+</p>
+
+<p>
+    <strong>Выходные данные: </strong> Объект. 
+</p>
+
+
+<!-- Give some usage examples -->
+<div class="for_info_only">
+    <p>
+        <strong>Пример:</strong>
+    </p>
+
+{% if interpreter.slug == "js-node" %}
+<pre class="brush: javascript">yaml('- write some
+- "Alex Chii"
+- 89') == ['write some', 'Alex Chii', 89]
+yaml('# comment
+'
+ '- write some # after
+'
+ '# one mor
+'
+ '- "Alex Chii #sir "
+'
+ '- 89 #bl') == ['write some', 'Alex Chii #sir ', 89]
+</pre>
+{% else %}
+<pre class="brush: python">yaml('- write some
+- "Alex Chii"
+- 89') == ['write some', 'Alex Chii', 89]
+yaml('# comment
+'
+ '- write some # after
+'
+ '# one mor
+'
+ '- "Alex Chii #sir "
+'
+ '- 89 #bl') == ['write some', 'Alex Chii #sir ', 89]
+</pre>
+{% endif %}
+</div>
+
+
+<!-- Here you can explain some constraints for input-->
+<!-- The section is optional -->
+<p>
+    <strong>Предварительное условие:</strong>
+    <i>Используется стандарт YAML версии 1.2</i>
+</p>
