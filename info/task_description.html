@@ -1,58 +1,52 @@
 <!-- Describe task in general -->
 
-<p>This is the second task on parsing YAML. It represents the next step where parsing gets more complicated. The data types, such as null and bool, are being added, and besides that, you’re getting the ability to use quotes in strings.</p>
+<p>In the 3rd YAML parsing task, we’re going to look into arrays.</p>
 
-<p>Here are some of the examples:</p>
+<p><i>(Remember that in this mission you must take into account the conditions of previous missions. It means that your solution should work with dictionaries from a previous mission and with arrays from this one.)</i></p>
+
+<p>A simple example:</p>
 
 <pre>
-name: "Bob Dylan"
-children: 6
+- write some
+- "Alex Chii"
+- 89
 </pre>
 
 <pre>
-{
-  "name": "Bob Dylan", 
-  "children": 6
-}
+[
+  "write some", 
+  "Alex Chii", 
+  89
+]
 </pre>
 
-<p>As you can see, the string can be put in quotes. It can be both double and single quotes.</p>
+<p>As you can see in the above example, the format for values is the same as we’ve used in the previous task for the format of values in the dictionary.</p>
+
+<p>It's time to add comments to the format.</p>
+
+<p>Everything indicated after the # sign should be ignored by the parser.</p>
 
 <pre>
-name: "Bob Dylan"
-children: 6
-alive: false
-</pre>
-
-<pre>
-{
-  "name": "Bob Dylan", 
-  "alive": {% if interpreter.slug == "js-node" %}false{% else %}False{%endif%}, 
-  "children": 6
-}
-</pre>
-
-<p>true and false are the keywords defining the boolean type.</p>
-
-<pre>
-name: "Bob Dylan"
-children: 6
-coding:
+# comment
+- write some # after
+# one mor
+- "Alex Chii #sir "
+- 89 #bl
 </pre>
 
 <pre>
-{
-  "coding": {% if interpreter.slug == "js-node" %}null{% else %}None{%endif%}, 
-  "name": "Bob Dylan", 
-  "children": 6
-}
+[
+  "write some", 
+  "Alex Chii #sir ", 
+  89
+]
 </pre>
 
-<p>If no value is specified, it becomes undefined. There also is a keyword for this - null.</p>
+<p>As you may have noticed, the comments inside the string aren’t considered as comments, they are treated as part of the string, which makes sense.</p>
 
 <!-- Explain input and output values -->
 <p>
-    <strong>Input: </strong> A format string.
+    <strong>Input: </strong> Format string.
 </p>
 
 <p>
@@ -102,5 +96,5 @@ yaml('# comment
 <!-- The section is optional -->
 <p>
     <strong>Precondition:</strong>
-    <i>YAML 1.2 is being used with <a href="https://yaml.org/spec/1.2/spec.html#id2803231">JSON Schema</a>.</i>
+    <i>The YAML 1.2 standard is being used.</i>
 </p>
