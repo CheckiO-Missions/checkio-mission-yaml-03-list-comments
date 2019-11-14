@@ -61,31 +61,21 @@
     </p>
 
 {% if interpreter.slug == "js-node" %}
-<pre class="brush: javascript">yaml('- write some
-- "Alex Chii"
-- 89') == ['write some', 'Alex Chii', 89]
-yaml('# comment
-'
- '- write some # after
-'
- '# one mor
-'
- '- "Alex Chii #sir "
-'
- '- 89 #bl') == ['write some', 'Alex Chii #sir ', 89]
+<pre class="brush: javascript">
+yaml('- write some\n- "Alex Chii"\n- 89') == ['write some', 'Alex Chii', 89]
+yaml('# comment\n'
+ + '- write some # after\n'
+ + '# one mor\n'
+ + '- "Alex Chii #sir "\n'
+ + '- 89 #bl') == ['write some', 'Alex Chii #sir ', 89]
 </pre>
 {% else %}
-<pre class="brush: python">yaml('- write some
-- "Alex Chii"
-- 89') == ['write some', 'Alex Chii', 89]
-yaml('# comment
-'
- '- write some # after
-'
- '# one mor
-'
- '- "Alex Chii #sir "
-'
+<pre class="brush: python">
+  yaml('- write some\n- "Alex Chii"\n- 89') == ['write some', 'Alex Chii', 89]
+  yaml('# comment\n'
+ '- write some # after\n'
+ '# one mor\n'
+ '- "Alex Chii #sir "\n'
  '- 89 #bl') == ['write some', 'Alex Chii #sir ', 89]
 </pre>
 {% endif %}
