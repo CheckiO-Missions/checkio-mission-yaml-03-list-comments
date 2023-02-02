@@ -1,84 +1,78 @@
 <!-- Describe task in general -->
 
-<p>In the 3rd YAML parsing task, we’re going to look into arrays.</p>
+<p>In the 3rd YAML parsing task, we’re going to look into {% if is_js %}arrays{% else %}lists{% endif %}.</p>
 
-<p><i>(Remember that in this mission you must take into account the conditions of previous missions. It means that your solution should work with dictionaries from a previous mission and with arrays from this one.)</i></p>
+<p><i>(Remember that in this mission you must take into account the conditions of previous missions. It means that your solution should work with {% if is_js %}objects{% else %}dictionaries{% endif %} from a previous mission and with {% if is_js %}arrays{% else %}lists{% endif %} from this one).</i></p>
 
 <p>A simple example:</p>
-
-<pre>
+<table>
+    <tr>
+        <td>
+            <pre>
 - write some
 - "Alex Chii"
 - 89
-</pre>
-
-<pre>
+            </pre> 
+        </td>
+        <td>
+            <pre class="brush: python">
 [
-  "write some", 
-  "Alex Chii", 
-  89
+"write some", 
+"Alex Chii", 
+89
 ]
-</pre>
+            </pre>
+        </td>
+    </tr>
+</table>
 
-<p>As you can see in the above example, the format for values is the same as we’ve used in the previous task for the format of values in the dictionary.</p>
+<p>As you can see in the above example, the format for values is the same as we’ve used in the previous task for the format of values in the {% if is_js %}object{% else %}dictionary{% endif %}.</p>
 
 <p>It's time to add comments to the format.</p>
 
 <p>Everything indicated after the # sign should be ignored by the parser.</p>
 
-<pre>
+<table>
+    <tr>
+        <td>
+            <pre>
 # comment
 - write some # after
-# one mor
+# one more
 - "Alex Chii #sir "
 - 89 #bl
-</pre>
-
-<pre>
+            </pre> 
+        </td>
+        <td>
+            <pre class="brush: python">
 [
-  "write some", 
-  "Alex Chii #sir ", 
-  89
+"write some", 
+"Alex Chii #sir ", 
+89
 ]
-</pre>
+            </pre>
+        </td>
+    </tr>
+</table>
 
 <p>As you may have noticed, the comments inside the string aren’t considered as comments, they are treated as part of the string, which makes sense.</p>
 
 <!-- Explain input and output values -->
 <p>
-    <strong>Input: </strong> Format string.
+    <strong>Input:</strong> Format string.
 </p>
 
 <p>
-    <strong>Output: </strong> An object. 
+    <strong>Output:</strong> An object ({% if is_js %}array/object{% else %}list/dictionary{% endif %}). 
 </p>
 
 
 <!-- Give some usage examples -->
 <div class="for_info_only">
     <p>
-        <strong>Example:</strong>
+        <strong>Examples:</strong>
     </p>
-
-{% if interpreter.slug == "js-node" %}
-<pre class="brush: javascript">
-yaml('- write some\n- "Alex Chii"\n- 89') == ['write some', 'Alex Chii', 89]
-yaml('# comment\n'
- + '- write some # after\n'
- + '# one mor\n'
- + '- "Alex Chii #sir "\n'
- + '- 89 #bl') == ['write some', 'Alex Chii #sir ', 89]
-</pre>
-{% else %}
-<pre class="brush: python">
-  yaml('- write some\n- "Alex Chii"\n- 89') == ['write some', 'Alex Chii', 89]
-  yaml('# comment\n'
- '- write some # after\n'
- '# one mor\n'
- '- "Alex Chii #sir "\n'
- '- 89 #bl') == ['write some', 'Alex Chii #sir ', 89]
-</pre>
-{% endif %}
+    <pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
 </div>
 
 
