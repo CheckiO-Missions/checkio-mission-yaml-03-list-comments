@@ -1,0 +1,84 @@
+<!-- Describe task in general -->
+
+<p>У 3-му завданнях з парсингу YAML ми будемо розглядати {% if is_js %}масиви{% else %}списки{% endif %}.</p>
+
+<p><i>(Пам'ятай, що в цій місії ти маєш враховувати умови попередніх місій. Це означає, що твоє рішення має працювати з словниками з минулої місії і з {% if is_js %}масивами{% else %}списками{% endif %} з цієї).</i></p>
+
+<p>Простий приклад:</p>
+<table>
+    <tr>
+        <td>
+            <pre>
+- write some
+- "Alex Chii"
+- 89
+            </pre> 
+        </td>
+        <td>
+            <pre class="brush: python">
+[
+"write some", 
+"Alex Chii", 
+89
+]
+            </pre>
+        </td>
+    </tr>
+</table>
+
+<p>Як ти бачиш у наведеному вище прикладі, формат для значень такий же, як ми використовували в попередньому завданні для формату значень у словнику.</p>
+
+<p>Настав час додати коментарі до формату.</p>
+
+<p>Все, що вказано після знака #, повинно бути ігнороване парсером.</p>
+
+<table>
+    <tr>
+        <td>
+            <pre>
+# comment
+- write some # after
+# one more
+- "Alex Chii #sir "
+- 89 #bl
+            </pre> 
+        </td>
+        <td>
+            <pre class="brush: python">
+[
+"write some", 
+"Alex Chii #sir ", 
+89
+]
+            </pre>
+        </td>
+    </tr>
+</table>
+
+<p>Як видно, коментарі всередині рядка не вважаються коментарями, а частиною рядка, що має сенс.</p>
+
+<!-- Explain input and output values -->
+<p>
+    <strong>Вхідні дані:</strong> Форматований рядок.
+</p>
+
+<p>
+    <strong>Вихідні дані:</strong> Об'єкт ({% if is_js %}масив/словник{% else %}список/словник{% endif %}). 
+</p>
+
+
+<!-- Give some usage examples -->
+<div class="for_info_only">
+    <p>
+        <strong>Приклади:</strong>
+    </p>
+    <pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+</div>
+
+
+<!-- Here you can explain some constraints for input-->
+<!-- The section is optional -->
+<p>
+    <strong>Передумова:</strong>
+    <i>Використовується стандарт YAML 1.2.</i>
+</p>

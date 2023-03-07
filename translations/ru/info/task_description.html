@@ -1,24 +1,31 @@
 <!-- Describe task in general -->
 
-<p>В третьей задаче по парсингу YAML мы познакомимся с массивами.</p>
+<p>В третьей задаче по парсингу YAML мы познакомимся с {% if is_js %}массивами{% else %}списками{% endif %}.</p>
 
-<p><i>(Помните, что в этой миссии надо учитывать условия предыдущих миссий. Это значит, что ваше решение должно работать со словарями из предыдущей миссии и с массивами из этой.)</i></p>
+<p><i>(Помните, что в этой миссии надо учитывать условия предыдущих миссий. Это значит, что ваше решение должно работать со словарями из предыдущей миссии и с {% if is_js %}массивами{% else %}списками{% endif %} из этой).</i></p>
 
 <p>Простой пример:</p>
 
-<pre>
+<table>
+    <tr>
+        <td>
+            <pre>
 - write some
 - "Alex Chii"
 - 89
-</pre>
-
-<pre>
+            </pre> 
+        </td>
+        <td>
+            <pre class="brush: python">
 [
-  "write some", 
-  "Alex Chii", 
-  89
+"write some", 
+"Alex Chii", 
+89
 ]
-</pre>
+            </pre>
+        </td>
+    </tr>
+</table>
 
 <p>Как видите в этом примере - формат для значений такой же как мы использовали для формата значений в словаре, в предыдущей задаче.</p>
 
@@ -26,69 +33,47 @@
 
 <p>Все, что указано после знака # должно игнорироваться парсером.</p>
 
-<pre>
+<table>
+    <tr>
+        <td>
+            <pre>
 # comment
 - write some # after
-# one mor
+# one more
 - "Alex Chii #sir "
 - 89 #bl
-</pre>
-
-<pre>
+            </pre> 
+        </td>
+        <td>
+            <pre class="brush: python">
 [
-  "write some", 
-  "Alex Chii #sir ", 
-  89
+"write some", 
+"Alex Chii #sir ", 
+89
 ]
-</pre>
+            </pre>
+        </td>
+    </tr>
+</table>
 
 <p>Как вы могли заметить, что комментарии внутри строки не считаются комментариями, а рассматриваются как часть строки, что логично.</p>
 
 <!-- Explain input and output values -->
 <p>
-    <strong>Входные данные: </strong> Строка в формате 
+    <strong>Входные данные:</strong> Строка в формате 
 </p>
 
 <p>
-    <strong>Выходные данные: </strong> Объект. 
+    <strong>Выходные данные:</strong> Объект ({% if is_js %}массив/словарь{% else %}список/словарь{% endif %}). 
 </p>
 
 
 <!-- Give some usage examples -->
 <div class="for_info_only">
     <p>
-        <strong>Пример:</strong>
+        <strong>Примеры:</strong>
     </p>
-
-{% if interpreter.slug == "js-node" %}
-<pre class="brush: javascript">yaml('- write some
-- "Alex Chii"
-- 89') == ['write some', 'Alex Chii', 89]
-yaml('# comment
-'
- '- write some # after
-'
- '# one mor
-'
- '- "Alex Chii #sir "
-'
- '- 89 #bl') == ['write some', 'Alex Chii #sir ', 89]
-</pre>
-{% else %}
-<pre class="brush: python">yaml('- write some
-- "Alex Chii"
-- 89') == ['write some', 'Alex Chii', 89]
-yaml('# comment
-'
- '- write some # after
-'
- '# one mor
-'
- '- "Alex Chii #sir "
-'
- '- 89 #bl') == ['write some', 'Alex Chii #sir ', 89]
-</pre>
-{% endif %}
+    <pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
 </div>
 
 
