@@ -1,0 +1,84 @@
+<!-- Describe task in general -->
+
+<p>In der 3. YAML-Parsing-Aufgabe werden wir uns mit {% if is_js %}Arrays{% else %}Listen{% endif %} beschäftigen.</p>
+
+<p><i>(Denken Sie daran, dass Sie in dieser Mission die Bedingungen der vorherigen Missionen berücksichtigen müssen. Das bedeutet, dass Ihre Lösung mit {% if is_js %}Objekten{% else %}Wörterbüchern{% endif %} aus einer früheren Mission und mit {% if is_js %}Arrays{% else %}Listen{% endif %} aus dieser Mission funktionieren sollte).</i></p>
+
+<p>Ein einfaches Beispiel:</p>
+<table>
+    <tr>
+        <td>
+            <pre>
+- write some
+- "Alex Chii"
+- 89
+            </pre> 
+        </td>
+        <td>
+            <pre class="brush: python">
+[
+"write some", 
+"Alex Chii", 
+89
+]
+            </pre>
+        </td>
+    </tr>
+</table>
+
+<p>Wie Sie im obigen Beispiel sehen können, ist das Format für die Werte dasselbe, das wir in der vorherigen Aufgabe für das Format der Werte im Objekt {% if is_js %}{% else %} dictionary{% endif %} verwendet haben.</p>
+
+<p>Es ist an der Zeit, das Format mit Kommentaren zu versehen.</p>
+
+<p>Alles, was nach dem Zeichen # angegeben wird, sollte vom Parser ignoriert werden.</p>
+
+<table>
+    <tr>
+        <td>
+            <pre>
+# comment
+- write some # after
+# one more
+- "Alex Chii #sir "
+- 89 #bl
+            </pre> 
+        </td>
+        <td>
+            <pre class="brush: python">
+[
+"write some", 
+"Alex Chii #sir ", 
+89
+]
+            </pre>
+        </td>
+    </tr>
+</table>
+
+<p>Wie Sie vielleicht bemerkt haben, werden die Kommentare innerhalb der Zeichenkette nicht als Kommentare betrachtet, sondern als Teil der Zeichenkette behandelt, was durchaus sinnvoll ist.</p>
+
+<!-- Explain input and output values -->
+<p>
+   <strong>Eingabe:</strong> Zeichenkette formatieren.
+</p>
+
+<p>
+   <strong>Ausgabe:</strong> Ein Objekt ({% if is_js %}array/object{% else %}list/dictionary{% endif %}). 
+</p>
+
+
+<!-- Give some usage examples -->
+<div class="for_info_only">
+    <p>
+        <strong>Beispiele:</strong>
+    </p>
+    <pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+</div>
+
+
+<!-- Here you can explain some constraints for input-->
+<!-- The section is optional -->
+<p>
+    <strong>Vorbedingung:</strong>
+    <i>Es wird der YAML 1.2 Standard verwendet.</i>
+</p>
